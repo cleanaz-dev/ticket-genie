@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  email    String   @unique
+  name     String?
+  userType userType @default(Requestor)
+
+  Note Note[]
+}
+
+// Ticket entity representing individual tickets
+model Ticket {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  category      String
+  description   String
+  status        TicketStatus @default(NEW)
+  assignedTo    String       @default("Tier 1")
+  requestor     String
+  priority      String       @default("standard")
+  contactMethod String?
+  createdAt     DateTime     @default(now())
+  notes         Note[]
+}
+
+model Note {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?  @map("_createdById") @db.ObjectId
+  createdAt   DateTime @default(now())
+  ticket      Ticket   @relation(fields: [ticketId], references: [id])
+  ticketId    String   @map("_ticketId") @db.ObjectId
+  creatorName String?  @map("_creatorName")
+}
+
+// Enumeration for Ticket status
+enum TicketStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+// Enumeration for Ticket status
+enum userType {
+  Requestor
+  Support
+}
