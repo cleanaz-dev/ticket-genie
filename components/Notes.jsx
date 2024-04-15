@@ -1,8 +1,11 @@
 import React from "react";
 import { UserCircle } from "lucide-react";
+import EditNote from "./EditNote";
+import DeleteNote from "./DeleteNote";
 import { formatDate } from "@/lib/utils";
-import { DeleteNote } from "./DeleteNote";
-import { EditNote } from "./EditNote";
+
+
+
 
 export function NoteItem({ note }) {
   return (
