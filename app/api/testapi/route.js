@@ -1,4 +1,11 @@
-import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
+ 
 export async function GET(request) {
-    redirect('https://nextjs.org/')
-  }
+  const headersList = headers()
+  const referer = headersList.get('referer')
+ 
+  return new Response('Hello, Next.js!', {
+    status: 200,
+    headers: { referer: referer },
+  })
+}
