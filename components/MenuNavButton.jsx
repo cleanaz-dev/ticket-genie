@@ -51,6 +51,7 @@ export default function MenuNavButton() {
             pathname === link.href ? "bg-purple-500 text-white" : "bg-transparent"
            )}
           >
+          
            <link.icon className="mr-2 w-4 h-4" />
            <span >{link.label}</span>
           </span>

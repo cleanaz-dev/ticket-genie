@@ -25,7 +25,9 @@ import { createTicket } from "@/lib/actions";
 import { SubmitButton } from "./SubmitButton";
 
 
-export default function CreateNewTicket() {
+export default function CreateNewTicket(userEmail) {
+	const email = userEmail.userEmail
+	console.log(email)
   return (
     <Dialog>
 			<DialogTrigger asChild>
@@ -41,7 +43,7 @@ export default function CreateNewTicket() {
 					</DialogDescription>
 				</DialogHeader>
 				<form action={createTicket}>
-					
+					<input type="hidden" name="email" value={email} />
 					<div className="grid gap-4 py-4">
 						<div className="grid grid-cols-4 items-center gap-4">
 							<Label htmlFor="name" className="text-right">

@@ -15,9 +15,10 @@ datasource db {
 
 model User {
   id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId  String
   email    String   @unique
-  name     String?
-  userType userType @default(Requestor)
+  name     String
+  userType userType? @default(Requestor)
 
   Note Note[]
 }

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import {
 	Card,
 	CardContent,
@@ -16,8 +18,25 @@ import { SaveNotes, UpdateTicketButton } from './SubmitButton';
 import { updateNotes } from '@/lib/actions';
 import { Input } from './ui/input';
 import Notes from './Notes';
+import { useUser } from "@clerk/nextjs";
 
 export default function TicketMain({ ticket, note, userId }) {
+  const [userEmail, setUserEmail] = useState(null);
+  const { user } = useUser();
+  
+
+  useEffect(() => {
+    if (user) {
+      // Extract email address when user object is available
+      const email = user?.emailAddresses[0].emailAddress;
+      if (email) {
+        setUserEmail(email); // Set state only if email exists
+      }
+    }
+  }, [user]); // Dependency on user object
+  if (!userEmail) {
+    return <div>Loading...</div>;
+  }
   const {
     requestor,
     description,
@@ -33,11 +52,11 @@ export default function TicketMain({ ticket, note, userId }) {
     <div className="mt-6 pr-10 space-y-4">
       <form action={updateNotes}>
         <Input name="ticketId" value={id} type="hidden" />
-        <Input name="userId" value={userId} type="hidden" />
+        <Input name="userId" value={user.id} type="hidden" />
         <Card className="">
           <CardHeader>
             <div className="flex flex-row justify-between items-center ">
-              <CardTitle>Ticket {id}</CardTitle>
+              <CardTitle>Ticket {id} </CardTitle>
               <p className="py-2 px-4 rounded-lg bg-slate-50">{status}</p>
             </div>
 

@@ -1,11 +1,26 @@
-import React from "react";
+"use client";
 
-import Sidebar from "@/components/Sidebar";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
 import CreateNewTicket from "@/components/CreateNewTicket";
 
 export default function DashboardPage() {
+  const [userEmail, setUserEmail] = useState(null);
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      // Extract email address when user object is available
+      const email = user?.emailAddresses[0].emailAddress;
+      if (email) {
+        setUserEmail(email); // Set state only if email exists
+      }
+    }
+  }, [user]); // Dependency on user object
+  if (!userEmail) {
+    return <div>Loading...</div>;
+  }
+ 
   return (
     <div className="flex items-center justify-center h-[90vh] ">
       <div className="grid items-start gap-y-8">
@@ -16,7 +31,7 @@ export default function DashboardPage() {
               Easily create your ticket from here
             </p>
 
-            <CreateNewTicket />
+            <CreateNewTicket userEmail={userEmail} />
           </div>
         </div>
       </div>
