@@ -1,7 +1,8 @@
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 import MenuNavButton from './MenuNavButton'
+
 
 export default function Navbar() {
   return (
@@ -9,8 +10,9 @@ export default function Navbar() {
 		  <div className="container flex items-center justify-between">
 			{/* Button for small screens only */}
 			<div className="flex items-center md:hidden">
-		
+			<SignedIn>
 			  <MenuNavButton />
+			  </SignedIn>
 			</div>
 	  
 			<Link href="/">
