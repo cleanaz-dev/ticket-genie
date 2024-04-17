@@ -19,8 +19,10 @@ import { updateNotes } from '@/lib/actions';
 import { Input } from './ui/input';
 import Notes from './Notes';
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export default function TicketMain({ ticket, note, userId }) {
+  const router = useRouter();
   const [userEmail, setUserEmail] = useState(null);
   const { user } = useUser();
   
@@ -36,6 +38,10 @@ export default function TicketMain({ ticket, note, userId }) {
   }, [user]); // Dependency on user object
   if (!userEmail) {
     return <div>Loading...</div>;
+  }
+  if (!user) {
+    router.push("/"); // Use router.push for redirection
+    return null; // Prevent rendering if not logged in
   }
   const {
     requestor,

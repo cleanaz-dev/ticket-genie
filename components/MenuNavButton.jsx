@@ -8,6 +8,8 @@ import {
     HomeIcon,
     LogOut,
     LogOutIcon,
+    Menu,
+    MenuSquare,
     SettingsIcon,
     TicketIcon,
    } from "lucide-react";
@@ -27,7 +29,7 @@ export default function MenuNavButton() {
     return (
      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild>
-       <Button variant="outline"><span className='text-purple-500'>Menu</span></Button>
+       <button variant="outline" asChild><span className='text-purple-500'><Menu /></span></button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[300px]">
        <SheetHeader>

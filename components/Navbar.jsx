@@ -6,7 +6,7 @@ import MenuNavButton from './MenuNavButton'
 
 export default function Navbar() {
   return (
-    <nav className="border-b bg-transparent h-[5vh] flex items-center">
+    <nav className="border-b bg-transparent h-[40px] flex items-center">
 		  <div className="container flex items-center justify-between">
 			{/* Button for small screens only */}
 			<div className="flex items-center md:hidden">

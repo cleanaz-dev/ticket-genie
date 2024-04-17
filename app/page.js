@@ -8,7 +8,7 @@ import { MoveRightIcon, SmileIcon } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <section className="flex flex-col items-center  justify-center bg-background h-[95vh] bg-gradient-to-b from-slate-50/50 to-slate-400/50">
+    <section className="flex flex-col items-center  justify-center bg-background h-screen bg-gradient-to-b from-slate-50/50 to-slate-400/50">
       <div className="max-w-5xl px-4 md:px-10 space-y-4">
         <div className="flex items-center justify-center">
           <Image src={heroImage} alt="genie" />

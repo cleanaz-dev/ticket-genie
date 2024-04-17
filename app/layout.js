@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Ticket Genie",
-  description: "Simple Ticket App",
+  description: "Simple Ticket App with a number of features",
 };
 
 export default function RootLayout({ children }) {
