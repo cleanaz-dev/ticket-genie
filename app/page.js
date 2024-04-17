@@ -8,12 +8,12 @@ import { MoveRightIcon, SmileIcon } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <section className="flex flex-col items-center  justify-center bg-background h-screen bg-gradient-to-b from-slate-50/50 to-slate-400/50">
+    <section className="h-screen flex flex-col items-center  justify-center bg-background bg-gradient-to-b from-slate-50/50 to-slate-400/50">
       <div className="max-w-5xl px-4 md:px-10 space-y-4">
         <div className="flex items-center justify-center">
           <Image src={heroImage} alt="genie" />
         </div>
-        <h1 className="font-extrabold text-2xl md:text-6xl leading-tight tracking-tight">
+        <h1 className="font-extrabold text-3xl md:text-6xl leading-tight tracking-tight">
           Enhance <span className="text-purple-500">teamwork</span> and
           streamline ticket management with
           <span className="text-primary"> ease.</span>
