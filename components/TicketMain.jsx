@@ -61,7 +61,7 @@ export default function TicketMain({ ticket, note, userId }) {
 
 
   return (
-    <div className="mt-6 pr-10 space-y-4">
+    <div className="mt-6 pr-10 pl-10 md:pl-0 space-y-4">
       <form action={updateNotes}>
         <Input name="ticketId" value={id} type="hidden" />
         <Input name="userId" value={user.id} type="hidden" />

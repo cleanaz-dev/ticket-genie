@@ -26,17 +26,7 @@ export default function Navbar() {
         </div>
       </nav>
 	  </SignedIn>
-	  <SignedOut>
-	  <nav className="border-b bg-transparent  flex items-center fixed w-full">
-	  <div className="container flex items-center justify-between ">
-	  <Link href="/">
-            <h1 className="font-extrabold text-4xl">
-              Ticket <span className="text-purple-500">Genie </span>
-            </h1>
-          </Link>
-	  </div>
-	  </nav>
-	  </SignedOut>
+	 
     </>
   );
 }
