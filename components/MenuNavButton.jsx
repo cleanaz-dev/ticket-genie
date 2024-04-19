@@ -29,7 +29,7 @@ export default function MenuNavButton() {
     return (
      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild>
-       <span className='text-purple-500 hover:bg-slate-50'><Menu /></span>
+       <span className='text-purple-500 hover:bg-slate-50 p-2 rounded-lg ho'><Menu /></span>
       </SheetTrigger>
       <SheetContent side="left" className="w-[300px]">
        <SheetHeader>

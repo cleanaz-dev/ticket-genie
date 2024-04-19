@@ -13,13 +13,16 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { Textarea } from './ui/textarea';
-import { Dot, NotebookTabs, SkipBack } from 'lucide-react';
+import { SkipBack } from 'lucide-react';
 import { SaveNotes, UpdateTicketButton } from './SubmitButton';
 import { updateNotes } from '@/lib/actions';
 import { Input } from './ui/input';
 import Notes from './Notes';
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+
+import { applyStatusColor } from "@/lib/utils";
+
 
 export default function TicketMain({ ticket, note, userId }) {
   const router = useRouter();
@@ -54,6 +57,9 @@ export default function TicketMain({ ticket, note, userId }) {
     assignedTo,
   } = ticket;
 
+  const statusColor = applyStatusColor(status);
+
+
   return (
     <div className="mt-6 pr-10 space-y-4">
       <form action={updateNotes}>
@@ -61,9 +67,9 @@ export default function TicketMain({ ticket, note, userId }) {
         <Input name="userId" value={user.id} type="hidden" />
         <Card className="">
           <CardHeader>
-            <div className="flex flex-row justify-between items-center ">
+            <div className="space-y-2">
               <CardTitle>Ticket {id} </CardTitle>
-              <p className="py-2 px-4 rounded-lg bg-slate-50">{status}</p>
+              <p className={`inline-flex py-2 px-4 rounded-lg ${statusColor}`}>{status}</p>
             </div>
 
             <CardDescription>Please review ticket information</CardDescription>
@@ -71,7 +77,7 @@ export default function TicketMain({ ticket, note, userId }) {
           <CardContent>
             <Label className="text-muted-foreground">Requestor</Label>
             <p>{requestor}</p>
-            <Label className="text-muted-foreground">Assigned To</Label>
+            <Label className="text-muted-foreground">Assigned</Label>
             <p>
               {assignedTo ? (
                 assignedTo

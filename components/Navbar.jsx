@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <>
 	<SignedIn>
-      <nav className="border-b bg-transparent  flex items-center ">
+      <nav className="border-b bg-white flex items-center ">
         <div className="container flex items-center justify-between py-2">
           {/* Button for small screens only */}
           <div className="flex items-center md:hidden ">

@@ -1,15 +1,13 @@
 import prisma from "@/lib/db";
 
-
-
 export async function POST(request) {
   try {
     const body = await request.json();
-    console.log(body)
+    console.log(body);
     // Code to get first_name, id and email from the body
     const name = body.data.first_name;
-    const email = body.data.email_addresses[0].email_address
-    const clerkId = body.data.id
+    const email = body.data.email_addresses[0].email_address;
+    const clerkId = body.data.id;
 
     const user = {
       clerkId: clerkId,

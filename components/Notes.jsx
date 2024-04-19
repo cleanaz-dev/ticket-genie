@@ -17,7 +17,7 @@ export function NoteItem({ note }) {
         <p className="text-xs text-muted-foreground">
           {formatDate(note.createdAt)}
         </p>
-        <p>{note.content}</p>
+        <p style={{ whiteSpace: 'pre-wrap' }}>{note.content}</p>
         <div className="flex gap-x-2 mt-2">
           <EditNote note={note} />
           <DeleteNote note={note} />

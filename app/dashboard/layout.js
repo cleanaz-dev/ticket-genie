@@ -9,7 +9,7 @@ export default async function DashboardLayout({children}) {
                    <aside className="hidden w-[200px] flex-col md:flex">
                        <Sidebar />
                    </aside>
-   
+                    
                    <main>{children}</main>
                    <Toaster />
                </div>

@@ -20,18 +20,19 @@ export default function DashboardPage() {
   if (!userEmail) {
     return <div>Loading...</div>;
   }
- 
+
   return (
     <div className="flex items-center justify-center h-[90vh] ">
       <div className="grid items-start gap-y-8">
         <div className="flex items-center justify-between px-2">
           <div className="grid gap-1">
-            <h1 className="text-3xl md:text-4xl">Start a New Ticket</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-3xl md:text-4xl text-center tracking-wide">Start a New Ticket</h1>
+            <p className="text-lg text-muted-foreground text-center">
               Easily create your ticket from here
             </p>
-
-            <CreateNewTicket userEmail={userEmail} />
+            <div className="inline-flex justify-center">
+              <CreateNewTicket userEmail={userEmail} />
+            </div>
           </div>
         </div>
       </div>

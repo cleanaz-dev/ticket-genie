@@ -14,9 +14,9 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   clerkId  String
-  email    String   @unique
+  email    String    @unique
   name     String
   userType userType? @default(Requestor)
 
@@ -35,6 +35,8 @@ model Ticket {
   contactMethod String?
   createdAt     DateTime     @default(now())
   notes         Note[]
+  smartId       String?
+  useAI         Boolean?     @default(false)
 }
 
 model Note {

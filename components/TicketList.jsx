@@ -42,7 +42,7 @@ export default async function TicketList() {
             <TableHead className="text-xs">Priority</TableHead>
             <TableHead className="text-xs">Category</TableHead>
 
-            <TableHead className="w-1/6 text-xs">Assigned To</TableHead>
+            <TableHead className="w-1/6 text-xs text-center">Assigned</TableHead>
             <TableHead className="w-1/8 text-right rounded-tr-md text-xs">
               Satus
             </TableHead>
