@@ -8,7 +8,7 @@ export default async function SingleTicketPage({ params }) {
   const ticket = await getTicket(params.id);
   const note = await getTicketNotes(params.id);
   return (
-    <div>
+    <div className='overflow-auto'>
       <TicketMain ticket={ticket} note={note} />
     </div>
   );

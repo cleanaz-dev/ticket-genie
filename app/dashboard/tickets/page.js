@@ -6,14 +6,12 @@ import React from "react";
 
 export default function TicketsPage() {
   return (
-    <div>
-      <h1 className="text-2xl mb-2 font-thin mt-2">
-       
-      </h1>
+    <>
+      
       {/* Scrollable container */}
 
       {/* Adjust max-height as needed */}
       <TicketList />
-    </div>
+    </>
   );
 }
